@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+require('./build-task')(function(error) {
+  if (error)
+    console.log(error)
+  else
+    console.log("Build completed")
+})
