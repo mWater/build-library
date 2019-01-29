@@ -37,9 +37,6 @@ module.exports = function() {
     },
     resolve: {
       extensions: [".coffee", ".js", ".json", ".tsx", ".ts"]
-    },
-    resolveLoader: {
-      modules: [path.resolve(__dirname, "node_modules")]
     }
   }
 
