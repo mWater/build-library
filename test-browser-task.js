@@ -1,15 +1,15 @@
-const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
+const glob = require('glob')
 
 module.exports = function() {
   var webpackConfig = {
-    entry: ['./src/demo.coffee'],
+    entry: ["./test/index.js"],
     mode: "development",
     output: {
-      filename: 'demo.js',
-      publicPath: 'http://localhost:3001/'
+      filename: 'bundle.js',
+      path: __dirname
     },
     module: {
       rules: [
@@ -38,10 +38,6 @@ module.exports = function() {
     resolve: {
       extensions: [".coffee", ".js", ".json", ".tsx", ".ts"]
     },
-    externals: {
-      jquery: "$",
-      xlsx: "XLSX"
-    },
     resolveLoader: {
       modules: [path.resolve(__dirname, "node_modules")]
     }
@@ -49,11 +45,11 @@ module.exports = function() {
 
   compiler = webpack(webpackConfig)
 
-  new WebpackDevServer(compiler, { contentBase: path.join(__dirname, "assets") }).listen(3001, "localhost", function(err) {
+  new WebpackDevServer(compiler, { contentBase: path.join(__dirname, "assets") }).listen(8081, "localhost", function(err) {
     if (err)
       throw err
 
     // Server listening
-    console.log("http://localhost:3001/index.html")
+    console.log("http://localhost:8081/mocha.html")
   })
 }
