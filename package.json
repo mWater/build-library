@@ -11,28 +11,18 @@
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "coffee-loader": "^0.9.0",
     "coffeeify": "^3.0.1",
     "coffeescript": "^2.3.2",
-    "css-loader": "^2.1.0",
     "ez-localize": "^1.1.1",
-    "file-loader": "^3.0.1",
     "glob": "^7.1.2",
     "gulp": "^4.0.0",
     "gulp-coffee": "^3.0.3",
     "gulp-typescript": "^5.0.0",
     "handlebars": "^4.0.12",
-    "handlebars-loader": "^1.7.1",
     "hbsfy": "^2.2.1",
-    "jsdom": "^13.2.0",
-    "jsdom-global": "^3.0.2",
-    "mocha": "^5.2.0",
-    "mocha-loader": "^2.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "style-loader": "^0.23.1",
-    "ts-loader": "^5.3.3",
-    "ts-node": "^7.0.1",
     "tsify": "^4.0.1",
     "typescript": "^3.2.2",
     "webpack": "^4.28.4",
@@ -40,5 +30,17 @@
   },
   "devDependencies": {
     "@storybook/react": "^3.4.1"
+  },
+  "peerDependencies": {
+    "coffee-loader": "^0.9.0",
+    "css-loader": "^2.1.0",
+    "file-loader": "^3.0.1",
+    "handlebars-loader": "^1.7.1",
+    "jsdom": "^13.2.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^5.2.0",
+    "mocha-loader": "^2.0.0",
+    "ts-loader": "^5.3.3",
+    "ts-node": "^7.0.1"
   }
 }

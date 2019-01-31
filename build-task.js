@@ -1,3 +1,4 @@
+const fs = require('fs')
 const gulp = require('gulp')
 const coffee = require('gulp-coffee')
 const ts = require('gulp-typescript')
