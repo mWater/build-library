@@ -3,14 +3,17 @@ const gulp = require('gulp')
 const coffee = require('gulp-coffee')
 const ts = require('gulp-typescript')
 const extractor = require('ez-localize/extractor')
+const path = require('path')
+const presetEnv = require('@babel/preset-env')
+const pluginTransformRuntime = require("@babel/plugin-transform-runtime")
 
 module.exports = function(done) {
   // Compile coffeescript
   function coffeeTask() {
     return gulp.src('./src/**/*.coffee')
       .pipe(coffee({ bare: true, transpile: { 
-        "presets": ["env"],
-        "plugins": ["babel-plugin-transform-runtime"]
+        "presets": [presetEnv],
+        "plugins": [pluginTransformRuntime]
       }}))
       .pipe(gulp.dest('./lib/'))
   }
@@ -18,9 +21,7 @@ module.exports = function(done) {
   // Compile typescript
   function typescriptTask() {
     return gulp.src('src/**/*.ts')
-    .pipe(ts({
-      noImplicitAny: true
-    }))
+    .pipe(ts(JSON.parse(fs.readFileSync("tsconfig.json")).compilerOptions))
     .pipe(gulp.dest('./lib/'))
   }
 
