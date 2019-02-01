@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const glob = require('glob')
 
 module.exports = function() {
   var webpackConfig = {
@@ -38,8 +37,9 @@ module.exports = function() {
     resolve: {
       extensions: [".coffee", ".js", ".json", ".tsx", ".ts"]
     },
+    // Resolve in way that works whether loaders are at root or not of node_modules
     resolveLoader: {
-      modules: [path.resolve(__dirname, "node_modules")]
+      modules: [path.resolve(__dirname, "node_modules"), path.resolve(process.cwd(), "node_modules")]
     }
   }
 

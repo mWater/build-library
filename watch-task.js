@@ -42,6 +42,7 @@ module.exports = function() {
       jquery: "$",
       xlsx: "XLSX"
     },
+    // Resolve in way that works whether loaders are at root or not of node_modules
     resolveLoader: {
       modules: [path.resolve(__dirname, "node_modules"), path.resolve(process.cwd(), "node_modules")]
     }
