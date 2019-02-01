@@ -10,7 +10,7 @@ module.exports = function() {
   require("coffeescript/register")
   require("ts-node/register")
   require("jsdom-global/register")
-  require('ignore-syles')
+  require('ignore-styles')
 
   var files = glob.sync("test/**/*Tests.coffee")
 
