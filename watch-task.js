@@ -41,6 +41,9 @@ module.exports = function() {
     externals: {
       jquery: "$",
       xlsx: "XLSX"
+    },
+    resolveLoader: {
+      modules: [path.resolve(__dirname, "node_modules")]
     }
   }
 
