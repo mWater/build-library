@@ -43,7 +43,7 @@ module.exports = function() {
       xlsx: "XLSX"
     },
     resolveLoader: {
-      modules: [path.resolve(__dirname, "node_modules")]
+      modules: [path.resolve(__dirname, "node_modules"), path.resolve(process.cwd(), "node_modules")]
     }
   }
 
