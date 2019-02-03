@@ -13,7 +13,11 @@ module.exports = function() {
     },
     module: {
       rules: [
-        { test: /\.coffee$/, use: [{ loader: "coffee-loader" }]},
+        { test: /\.coffee$/, use: [
+          { loader: "coffee-loader",  options: { 
+            transpile: { presets: ['env'] } }
+          }
+        ]},
         { test: /\.hbs$/, use: [{ loader: "handlebars-loader" }] },
         { test: /\.css$/, use: [
             { loader: "style-loader" },
