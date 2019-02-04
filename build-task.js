@@ -20,7 +20,7 @@ module.exports = function(done) {
 
   // Compile typescript
   function typescriptTask() {
-    return gulp.src('src/**/*.ts')
+    return gulp.src(['src/**/*.ts', 'src/**/*.tsx'])
     .pipe(ts(JSON.parse(fs.readFileSync("tsconfig.json")).compilerOptions))
     .pipe(gulp.dest('./lib/'))
   }
