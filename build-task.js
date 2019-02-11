@@ -32,8 +32,7 @@ module.exports = function(done) {
   }
   function localizeTask(cb) {
     console.log("Localizing...")
-    options = { extensions: ['.js', '.coffee'], transform: [coffeeify, hbsfy] }
-    extractor.updateLocalizationFile("src/index.coffee", "localizations.json", options, function() { cb() })
+    extractor.updateLocalizationFile(["src"], "localizations.json", {}, function() { cb() })
   }  
   // Handle gulp errors
   gulp.on("error", function() { console.error("An error occurred") })
