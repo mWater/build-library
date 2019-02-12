@@ -3,7 +3,6 @@ const gulp = require('gulp')
 const coffee = require('gulp-coffee')
 const ts = require('gulp-typescript')
 const extractor = require('ez-localize/extractor')
-const path = require('path')
 const presetEnv = require('@babel/preset-env')
 const pluginTransformRuntime = require("@babel/plugin-transform-runtime")
 
