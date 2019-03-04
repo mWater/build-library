@@ -11,6 +11,7 @@ module.exports = function() {
   require("ts-node/register")
   require("jsdom-global/register")
   require('ignore-styles')
+  require("handlebars")
 
   var files = glob.sync("test/**/*Tests.coffee")
 
