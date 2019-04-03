@@ -14,7 +14,10 @@ module.exports = function() {
       rules: [
         { test: /\.coffee$/, use: [
           { loader: "coffee-loader",  options: { 
-            transpile: { presets: ['@babel/preset-env'] } }
+            transpile: { 
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-transform-runtime']
+            } }
           }
         ]},
         { test: /\.hbs$/, use: [{ loader: "handlebars-loader" }] },
