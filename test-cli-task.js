@@ -13,7 +13,7 @@ module.exports = function() {
   require('ignore-styles')
   require("handlebars")
 
-  var files = glob.sync("test/**/*Tests.coffee")
+  var files = glob.sync("test/**/*Tests.coffee").concat(glob.sync("test/**/*Tests.ts"))
 
   for (var file of files) {
     mocha.addFile(file)
