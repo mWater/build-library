@@ -1,10 +1,13 @@
 const path = require('path')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
+const fs = require('fs')
+
+const entry = fs.existsSync("./src/demo.tsx") ? "./src/demo.tsx" : "./src/demo.coffee"
 
 module.exports = function() {
   var webpackConfig = {
-    entry: ['./src/demo.coffee'],
+    entry: [entry],
     mode: "development",
     output: {
       filename: 'demo.js',
