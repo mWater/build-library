@@ -32,7 +32,7 @@ module.exports = function() {
           { loader: 'ts-loader' }
         ]},
         {
-          test: /\.(ttf|eot|woff|woff2)$/,
+          test: /\.(ttf|eot|woff|woff2|svg)(\?\S*)?$/,
           use: {
             loader: "file-loader",
             options: {
