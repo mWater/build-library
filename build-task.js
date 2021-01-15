@@ -26,7 +26,7 @@ module.exports = function(done) {
 
   // Copy non-coffeescript files
   function copyTask() {
-    return gulp.src(['./src/**/*.js', './src/**/*.hbs', './src/**/*.css', './src/**/*.txt', './src/**/*.d.ts', './src/**/*.json'])
+    return gulp.src(['./src/**/*.js', './src/**/*.hbs', './src/**/*.css', './src/**/*.txt', './src/**/*.d.ts', './src/**/*.json', './src/**/*.png'])
       .pipe(gulp.dest('./lib/'))
   }
   function localizeTask(cb) {
