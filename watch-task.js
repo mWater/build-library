@@ -3,7 +3,23 @@ const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const fs = require('fs')
 
-const entry = fs.existsSync("./src/demo.tsx") ? "./src/demo.tsx" : "./src/demo.coffee"
+let entry = ""
+
+if (fs.existsSync("./src/demo.tsx")) {
+  entry = "./src/demo.tsx"
+}
+else if (fs.existsSync("./src/demo.ts")) {
+  entry = "./src/demo.ts"
+}
+else if (fs.existsSync("./src/demo.js")) {
+  entry = "./src/demo.js"
+}
+else if (fs.existsSync("./src/demo.coffee")) {
+  entry = "./src/demo.coffee"
+}
+else {
+  throw new Error("Entry not found")
+}
 
 module.exports = function() {
   var webpackConfig = {
