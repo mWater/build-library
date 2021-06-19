@@ -44,9 +44,13 @@ module.exports = function() {
             { loader: "style-loader" },
             { loader: "css-loader" }
         ]},
-        { test: /\.(ts|tsx)$/, use: [
-          { loader: 'ts-loader' }
-        ]},
+        { 
+          test: /\.(ts|tsx|js)$/, 
+          exclude: /(node_modules|bower_components)/,
+          use: [
+            { loader: 'ts-loader' }
+          ]
+        },
         {
           test: /\.(ttf|eot|woff|woff2|svg)(\?\S*)?$/,
           use: {
