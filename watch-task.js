@@ -48,7 +48,10 @@ module.exports = function() {
           test: /\.(ts|tsx|js)$/, 
           exclude: /(node_modules|bower_components)/,
           use: [
-            { loader: 'ts-loader' }
+            { 
+              loader: 'ts-loader',
+              options: { transpileOnly: true }
+            }
           ]
         },
         {

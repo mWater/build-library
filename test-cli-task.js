@@ -8,7 +8,8 @@ module.exports = function() {
   var mocha = new Mocha({});
   
   require("coffeescript/register")
-  require("ts-node/register")
+  // Turn off type checking for now
+  require("ts-node").register({ transpileOnly: true })
   require("jsdom-global/register")
   require('ignore-styles')
   require("handlebars")
