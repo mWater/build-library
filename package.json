@@ -16,6 +16,7 @@
     "coffee-loader": "^1.0.1",
     "coffeeify": "^3.0.1",
     "coffeescript": "^2.5.1",
+    "css-loader": "^5.2.7",
     "ez-localize": "^2.1.1",
     "file-loader": "^6.2.0",
     "glob": "^7.1.6",
