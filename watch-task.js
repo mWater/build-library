@@ -80,7 +80,6 @@ module.exports = function() {
       extensions: [".coffee", ".js", ".json", ".tsx", ".ts"]
     },
     externals: {
-      jquery: "$",
       xlsx: "XLSX"
     },
     // Resolve in way that works whether loaders are at root or not of node_modules
