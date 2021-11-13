@@ -22,7 +22,7 @@
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-coffee": "^3.0.3",
-    "gulp-typescript": "5.0.1",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "handlebars": "^4.7.6",
     "handlebars-loader": "^1.7.1",
     "hbsfy": "^2.2.1",
