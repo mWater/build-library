@@ -1,6 +1,6 @@
 # Build Library
 
-Builds, tests and demos library projects written in js, typescript and coffeescript.
+Builds, tests and demos library projects written in js and typescript
 
 To use:
 
@@ -13,6 +13,6 @@ To use:
     "test-browser": "node_modules/build-library/test-browser",
 ```
 
-* Add `@babel/runtime` as dependency and `coffeescript` as devdependency.
+* Add `@babel/runtime` as dependency and `typescript` as devdependency.
 
 * Run `npm run test`, `npm run watch`, `npm run build` or `npm run test-browser`

@@ -7,14 +7,13 @@ module.exports = function() {
   // Instantiate a Mocha instance.
   var mocha = new Mocha({});
   
-  require("coffeescript/register")
   // Turn off type checking for now
   require("ts-node").register({ transpileOnly: true })
   require("jsdom-global/register")
   require('ignore-styles')
   require("handlebars")
 
-  var files = glob.sync("test/**/*Tests.coffee").concat(glob.sync("test/**/*Tests.ts")).concat(glob.sync("test/**/*Tests.tsx")).concat(glob.sync("test/**/*Tests.js"))
+  var files = glob.sync("test/**/*Tests.ts").concat(glob.sync("test/**/*Tests.tsx")).concat(glob.sync("test/**/*Tests.js"))
 
   for (var file of files) {
     mocha.addFile(file)
@@ -26,4 +25,4 @@ module.exports = function() {
   });
 }
 
-// mocha -r $DIR/node_modules/coffeescript/register -r $DIR/node_modules/ts-node/register -r $DIR/node_modules/jsdom-global/register --require ignore-styles --recursive "test/**/*Tests.coffee"
+// mocha -r -r $DIR/node_modules/ts-node/register -r $DIR/node_modules/jsdom-global/register --require ignore-styles --recursive "test/**/*Tests.ts"

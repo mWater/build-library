@@ -14,9 +14,6 @@ else if (fs.existsSync("./src/demo.ts")) {
 else if (fs.existsSync("./src/demo.js")) {
   entry = "./src/demo.js"
 }
-else if (fs.existsSync("./src/demo.coffee")) {
-  entry = "./src/demo.coffee"
-}
 else {
   throw new Error("Entry not found")
 }
@@ -31,14 +28,6 @@ module.exports = function() {
     },
     module: {
       rules: [
-        { test: /\.coffee$/, use: [
-          { loader: "coffee-loader",  options: { 
-            transpile: { 
-              presets: ['@babel/preset-env'],
-              plugins: ['@babel/plugin-transform-runtime']
-            } }
-          }
-        ]},
         { test: /\.hbs$/, use: [{ loader: "handlebars-loader" }] },
         { test: /\.css$/, use: [
             { loader: "style-loader" },
@@ -77,7 +66,7 @@ module.exports = function() {
       ]
     },
     resolve: {
-      extensions: [".coffee", ".js", ".json", ".tsx", ".ts"]
+      extensions: [".js", ".json", ".tsx", ".ts"]
     },
     externals: {
       xlsx: "XLSX"

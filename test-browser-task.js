@@ -12,7 +12,6 @@ module.exports = function() {
     },
     module: {
       rules: [
-        { test: /\.coffee$/, use: [{ loader: "coffee-loader" }]},
         { test: /\.hbs$/, use: [{ loader: "handlebars-loader" }] },
         { test: /\.css$/, use: [
             { loader: "style-loader" },
@@ -35,7 +34,7 @@ module.exports = function() {
       ]
     },
     resolve: {
-      extensions: [".coffee", ".js", ".json", ".tsx", ".ts"]
+      extensions: [".js", ".json", ".tsx", ".ts"]
     },
     // Resolve in way that works whether loaders are at root or not of node_modules
     resolveLoader: {
