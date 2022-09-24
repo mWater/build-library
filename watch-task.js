@@ -1,7 +1,5 @@
-const path = require('path')
-const webpack = require('webpack')
-const WebpackDevServer = require('webpack-dev-server')
 const fs = require('fs')
+const esbuild = require("esbuild")
 
 let entry = ""
 
@@ -19,71 +17,34 @@ else {
 }
 
 module.exports = function() {
-  var webpackConfig = {
-    entry: [entry],
-    mode: "development",
-    output: {
-      filename: 'demo.js',
-      publicPath: 'http://localhost:3001/'
+  esbuild.serve(
+    {
+      host: "localhost",
+      port: 3001,
+      servedir: __dirname + "/assets"
     },
-    module: {
-      rules: [
-        { test: /\.hbs$/, use: [{ loader: "handlebars-loader" }] },
-        { test: /\.css$/, use: [
-            { loader: "style-loader" },
-            { loader: "css-loader" }
-        ]},
-        { 
-          test: /\.(ts|tsx|js)$/, 
-          exclude: /(node_modules|bower_components)/,
-          use: [
-            { 
-              loader: 'ts-loader',
-              options: { transpileOnly: true }
-            }
-          ]
-        },
-        {
-          test: /\.(ttf|eot|woff|woff2|svg)(\?\S*)?$/,
-          use: {
-            loader: "file-loader",
-            options: {
-              name: "fonts/[name].[ext]",
-            },
-          },
-        },        
-        {   
-          test: /\.(png|jpg|gif)$/i,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 8192
-              }
-            }
-          ]
-        }      
-      ]
-    },
-    resolve: {
-      extensions: [".js", ".json", ".tsx", ".ts"]
-    },
-    externals: {
-      xlsx: "XLSX"
-    },
-    // Resolve in way that works whether loaders are at root or not of node_modules
-    resolveLoader: {
-      modules: [path.resolve(__dirname, "node_modules"), path.resolve(process.cwd(), "node_modules")]
-    }
-  }
-
-  compiler = webpack(webpackConfig)
-
-  new WebpackDevServer(compiler, { contentBase: path.join(__dirname, "assets") }).listen(3001, "localhost", function(err) {
-    if (err)
-      throw err
-
-    // Server listening
-    console.log("http://localhost:3001/index.html")
-  })
+    {
+      write: false,
+      entryPoints: [entry],
+      outfile: __dirname + "/assets/demo.js",
+      sourcemap: true,
+      sourcesContent: true,
+      bundle: true,
+      target: "es2017",
+      plugins: [],
+      define: {
+        "process.env.NODE_ENV": '"development"',
+        global: "window",
+        "process.env": "{}"
+      },
+      minify: false,
+      loader: {
+        ".png": "dataurl"
+      }
+    }).then(result => {
+      // Server listening
+      console.log("http://localhost:3001/index.html")
+    }).catch(err => {
+      console.error(err.message)
+    })
 }
