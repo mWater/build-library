@@ -9,7 +9,7 @@ module.exports = function() {
   
   // Turn off type checking for now
   require("ts-node").register({ transpileOnly: true })
-  require("jsdom-global/register")
+  require("jsdom-global")(undefined, { url: "http://localhost" })
   require('ignore-styles')
   require("handlebars")
 
